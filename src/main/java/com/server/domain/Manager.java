@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -16,14 +17,16 @@ public class Manager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String firstName;
     private String lastName;
     private Long Salary;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "project_id")
-    private Project project;
+
+    @ManyToMany(mappedBy = "projects")
+    private Set<Project> projects = new HashSet<>();
+
     @OneToMany
     @JoinColumn(name = "manager_id")
-    private Set<Employee> employees;
+    private Set<Employee> employees = new HashSet<>();
 
 }
