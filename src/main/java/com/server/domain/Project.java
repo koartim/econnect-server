@@ -18,7 +18,8 @@ public class Project {
     private Long id;
     private String name;
     private Long budget;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "manager_id")
     private Manager manager;
     @OneToMany
     @JoinColumn(name = "project_id")

@@ -19,8 +19,9 @@ public class Manager {
     private String firstName;
     private String lastName;
     private Long Salary;
-    @OneToOne
-    private Set<Project> projects;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "project_id")
+    private Project project;
     @OneToMany
     @JoinColumn(name = "manager_id")
     private Set<Employee> employees;

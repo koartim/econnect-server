@@ -8,8 +8,6 @@ public class EconnectApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(EconnectApplication.class, args);
-
-
     }
 
 }
