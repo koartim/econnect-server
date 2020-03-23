@@ -1,14 +1,13 @@
 package com.server.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +21,7 @@ public class Manager {
     private String lastName;
     private Long Salary;
 
-    @ManyToMany(mappedBy = "projects")
+    @ManyToMany(mappedBy = "managers")
     private Set<Project> projects = new HashSet<>();
 
     @OneToMany

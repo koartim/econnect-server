@@ -1,14 +1,13 @@
 package com.server.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +23,7 @@ public class Project {
     @ManyToMany
     @JoinTable(name = "manager_project", joinColumns = @JoinColumn(name = "project_id"),
             inverseJoinColumns = @JoinColumn(name = "manager_id"))
-    private Set<Manager> managers;
+    private Set<Manager> managers = new HashSet<>();
 
     @OneToMany
     @JoinColumn(name = "project_id")
