@@ -1,25 +1,21 @@
-package com.server.domain;
+package com.server.api.v1.model;
 
+import com.server.domain.Manager;
+import com.server.domain.Project;
 import lombok.*;
-
-import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
+public class EmployeeDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
     private Long salary;
-    @ManyToOne
     private Project project;
-    @ManyToOne
     private Manager manager;
+
 
 }

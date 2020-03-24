@@ -7,7 +7,6 @@ import com.server.repositories.EmployeeRepository;
 import com.server.repositories.ManagerRepository;
 import com.server.repositories.ProjectRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -59,11 +58,8 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println(employeeRepository.count());
 
         System.out.println("Individual entity data");
-
         System.out.println(project.getEmployees().size() + ": number of employees on project");
-
         System.out.println(manager.getEmployees().size() + ": number of employees under manager");
-
         System.out.println(employee.getManager().getFirstName() + ": name of tims manager");
         System.out.println(employee.getProject().getName() + ": name of the project tim is on");
     }
