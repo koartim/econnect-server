@@ -3,10 +3,12 @@ package com.server.services;
 import com.server.api.v1.mapper.EmployeeMapper;
 import com.server.api.v1.model.EmployeeDTO;
 import com.server.repositories.EmployeeRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeMapper employeeMapper;

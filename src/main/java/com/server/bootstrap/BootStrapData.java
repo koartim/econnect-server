@@ -33,34 +33,24 @@ public class BootStrapData implements CommandLineRunner {
         employeeRepository.save(employee);
 
         Project project = new Project();
-        project.setBudget(10000000L);
         project.setName("IBM");
-        projectRepository.save(project);
-
-        Manager manager =  new Manager();
-        manager.setFirstName("Sachin");
-        manager.setLastName("Pandhare");
-        manager.setSalary(120000L);
-        manager.getEmployees().add(employee);
-        manager.getProjects().add(project);
-        managerRepository.save(manager);
-
-        project.getManagers().add(manager);
+        project.setBudget(1000000L);
         project.getEmployees().add(employee);
         projectRepository.save(project);
 
-        employee.setProject(project);
-        employee.setManager(manager);
-        employeeRepository.save(employee);
+        Manager manager = new Manager();
+        manager.setFirstName("Sachin");
+        manager.setLastName("Pandhare");
+        manager.setSalary(120000L);
+        manager.getProjects().add(project);
+        manager.getEmployees().add(employee);
+        managerRepository.save(manager);
 
-        System.out.println(managerRepository.count());
-        System.out.println(projectRepository.count());
-        System.out.println(employeeRepository.count());
 
-        System.out.println("Individual entity data");
-        System.out.println(project.getEmployees().size() + ": number of employees on project");
-        System.out.println(manager.getEmployees().size() + ": number of employees under manager");
-        System.out.println(employee.getManager().getFirstName() + ": name of tims manager");
-        System.out.println(employee.getProject().getName() + ": name of the project tim is on");
+
+
+
+
+
     }
 }
